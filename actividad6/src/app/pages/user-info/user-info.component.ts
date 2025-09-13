@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component,Input, inject } from '@angular/core';
+import { IUser } from '../../interfaces/iuser.interface';
+import { UsersService } from '../../services/users.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-info',
@@ -7,5 +10,21 @@ import { Component } from '@angular/core';
   styleUrl: './user-info.component.css'
 })
 export class UserInfoComponent {
+
+  
+  @Input() _id: string = ""
+  myUser! : IUser
+  usersService = inject(UsersService)
+  router = inject(Router)
+
+  ngOnInit(){
+
+  const _id: string = String(this._id)
+  const response = this.usersService.getById(_id)
+  if (!response){
+    this.router.navigate(['/error'])
+  }
+  this.myUser = response!
+  }
 
 }

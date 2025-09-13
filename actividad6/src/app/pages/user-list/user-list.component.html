@@ -1,0 +1,16 @@
+<section>   
+    <ul>
+    @for(user of arrayUsers; track user._id){
+    <li>
+        <figure>
+            <img src="{{user.image}}" alt="">
+        </figure>
+        <div>{{user.first_name}}</div>
+        <button [routerLink]="['/userList', user._id]">View detail</button>
+        <button> Update info user</button>
+        <button> Deleted</button>
+    </li>
+    }
+
+    </ul>
+</section>
