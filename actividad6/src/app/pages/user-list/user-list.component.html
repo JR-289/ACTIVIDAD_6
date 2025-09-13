@@ -1,7 +1,6 @@
-<section>   
-    <ul>
+<section class="row g-3">  
     @for(user of arrayUsers; track user._id){
-    <li>
+     <article class="col-12 col-md-6 col-lg-4">
         <figure>
             <img src="{{user.image}}" alt="">
         </figure>
@@ -9,8 +8,8 @@
         <button [routerLink]="['/userList', user._id]">View detail</button>
         <button> Update info user</button>
         <button> Deleted</button>
-    </li>
+    </article>
     }
-
-    </ul>
+   
+ 
 </section>
