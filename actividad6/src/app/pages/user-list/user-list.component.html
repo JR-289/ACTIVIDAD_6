@@ -1,11 +1,17 @@
 
 
 <section class="promises">
-  <div class="row g-3">
+  <div class="row g-5">
     @for (user of arrayUsers; track user) {
-      <article class="col-12 col-md-6 col-lg-3">
+      <article class="col-12 col-md-3">
       <app-user-card [myUser]="user"></app-user-card>
       </article>
     }
   </div>
 </section>
+
+<!-- <div class="d-flex justify-content-between align-items-center py-3">
+  <button class="btn btn-warning" (click)="gotoPrev()" [disabled]="currentPage === 1">PREV</button>
+  <span class="fw-semibold">Página {{ currentPage }} / {{ totalPages }}</span>
+  <button class="btn btn-warning" (click)="gotoNext()" [disabled]="currentPage === totalPages">NEXT</button>
+</div> -->

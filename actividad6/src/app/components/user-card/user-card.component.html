@@ -1,16 +1,33 @@
-<div class="row row-cols-auto card shadow-sm">
+<div class="card h-100 shadow-sm">
+  <!-- Imagen arriba -->
+  <img 
+    [src]="myUser()?.image || 'assets/no-image.png'" 
+    class="card-img-top img-fluid" 
+    [alt]="myUser()?.first_name" 
+    onerror="this.src='assets/no-image.png'"
+  />
 
-  <figure>
-    <img class="col-md-6" [src]="myUser()?.image" [alt]="myUser()?.first_name">
-  </figure>
+  <!-- Cuerpo -->
+  <div class="card-body d-flex flex-column text-center">
+    <h5 class="card-title text-dark">
+      {{ myUser()?.first_name }} {{ myUser()?.last_name }}
+    </h5>
+    <p class="card-text text-muted mb-3">
+      {{ myUser()?.email }} <br />
+      <small class="text-secondary">{{ myUser()?.username }}</small>
+    </p>
 
-  <div class="p-6 text-center">
-    <h3 class="text-dark">{{ myUser()?.first_name }} {{ myUser()?.last_name }}</h3>
-    <!-- <p class="text-warning">{{ myUser()?.email }} - {{ myUser()?.username }}</p> -->
-  </div>
-  <div>
-    <button [routerLink]="['/users', myUser()?._id]">Ver Detalle</button>
-    <button>Actualizar</button>
-    <button>Eliminar</button>
+    <!-- Botones al fondo -->
+    <div class="mt-auto d-flex flex-column gap-2">
+      <button class="btn btn-outline-primary btn-sm" [routerLink]="['/users', myUser()?._id]">
+        Ver Detalle
+      </button>
+      <button class="btn btn-outline-danger btn-sm" [routerLink]="['/updateUser', myUser()?._id]">
+        Editar
+      </button>
+      <button class="btn btn-outline-danger btn-sm" (click)="onDelete()">
+        Eliminar
+      </button>
+    </div>
   </div>
 </div>

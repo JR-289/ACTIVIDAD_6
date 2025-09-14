@@ -22,4 +22,19 @@ export class UsersService {
     const obs$ = this.httpClient.get<IUser>(`${this.baseUrl}/${_id}`);
     return await lastValueFrom(obs$);
   }
+
+async createUser(body: {
+    first_name: string;
+    last_name: string;
+    email: string;
+    image: string;
+  }): Promise<any> {
+    const obs$ = this.httpClient.post<any>(this.baseUrl, body);
+    return await lastValueFrom(obs$);
+  }
+async deleteUser(_id: string): Promise<any> {
+  const obs$ = this.httpClient.delete<any>(`${this.baseUrl}/${_id}`);
+  return await lastValueFrom(obs$);
 }
+}
+

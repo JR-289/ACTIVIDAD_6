@@ -26,4 +26,6 @@ export class UserListComponent {
       console.error('Error cargando usuarios:', error);
     }
   }
+
+  
 }

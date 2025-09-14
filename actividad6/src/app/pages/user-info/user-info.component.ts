@@ -48,4 +48,22 @@ export class UserInfoComponent {
       this.router.navigate(['/updateuser', this.myUser._id]);
     }
   }
+  async onDelete() {
+    if (!this.myUser?._id) return;
+
+    const confirmed = confirm(`¿Seguro que deseas eliminar a "${this.myUser.first_name}"?`);
+    if (!confirmed) return;
+
+    try {
+      await this.usersService.deleteUser(this.myUser._id);
+      alert('Usuario eliminado correctamente.');
+      this.router.navigate(['/home']); // redirigir al listado después de borrar
+    } catch (err) {
+      console.error('Error al eliminar usuario', err);
+      alert('No se pudo eliminar el usuario.');
+    }
+  }
+
+  
+  
 }
