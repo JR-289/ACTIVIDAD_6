@@ -2,6 +2,7 @@ import { Injectable, inject } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http';
 import { lastValueFrom } from 'rxjs';
+import { IUser } from '../interfaces/iuser.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -16,14 +17,14 @@ export class UsersService {
 
   /* opcion 2*/
   /* promises en angular - peticiones asincronas generales de javascript - convertir observable en un promesas */
-  getAllPromises(url: string): Promise<any> {
-    const miUrl = (url === "") ? this.baseUrl : url
-    return lastValueFrom(this.httpClient.get<any>(miUrl))
+  getAllPromises(id: string): Promise<any> {
+    const _id = (id === "") ? this.baseUrl : id
+    return lastValueFrom(this.httpClient.get<IUser>(_id))
   }
 
   /* metodo para obtener un unico personaje*/
-  getById(id: number): Promise<any> {
-    return lastValueFrom(this.httpClient.get<any>(`${this.baseUrl}${id}`))
+  getById(_id: string): Promise<any> {
+    return lastValueFrom(this.httpClient.get<any>(`${this.baseUrl}${_id}`))
   }
   
 }

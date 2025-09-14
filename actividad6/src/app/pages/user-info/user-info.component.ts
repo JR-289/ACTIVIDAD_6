@@ -19,12 +19,7 @@ export class UserInfoComponent {
 
   ngOnInit(){
 
-  const _id: string = String(this._id)
-  const response = this.usersService.getById(_id)
-  if (!response){
-    this.router.navigate(['/error'])
-  }
-  this.myUser = response!
+  
   }
 
 }

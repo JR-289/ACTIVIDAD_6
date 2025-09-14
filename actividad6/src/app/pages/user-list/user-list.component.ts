@@ -17,15 +17,18 @@ export class UserListComponent {
   usersService = inject(UsersService)
 
 ngOnInit () {
+  console.log(this.cargarUsers)
   this.cargarUsers()
+  
 }
 
-async cargarUsers(url: string = "") {
+async cargarUsers(id: any = "") {
     /* consumicion de las promesas - generica que tiene javascript de hacer peticiones http */
     try {
-      const response: any = await this.usersService.getAllPromises(url)
-      
-      this.arrayUsers = response._id
+      const response: any = await this.usersService.getAllPromises(id)
+
+      this.arrayUsers = response.id
+     
     }
     catch (error) {
       console.log(error)
