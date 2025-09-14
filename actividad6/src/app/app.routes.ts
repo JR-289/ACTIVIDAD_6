@@ -7,10 +7,10 @@ import { UserInfoComponent } from './pages/user-info/user-info.component';
 
 export const routes: Routes = [
 {path: "", pathMatch: "full", redirectTo: "home"},
-{path: "home", component: UserListComponent},
+{path: "home", component: HomeComponent},
 {path: "newUser", component: NewUserComponent},
 {path: "userList", component: UserListComponent},
-{path: "userList/ :_id", component: UserInfoComponent},
+{path: "users/:_id", component: UserInfoComponent},
 {path: "**", component: Error404Component}
 
 

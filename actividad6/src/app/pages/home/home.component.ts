@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { UserCardComponent } from "../../components/user-card/user-card.component";
+
+import { UserListComponent } from '../user-list/user-list.component';
 
 @Component({
   selector: 'app-home',
-  imports: [UserCardComponent],
+  imports: [ UserListComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

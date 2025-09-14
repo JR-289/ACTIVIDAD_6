@@ -21,7 +21,7 @@ export class UserListComponent {
   async cargarUsers() {
     try {
       this.arrayUsers = await this.usersService.getAllPromises();
-      console.log('Usuarios cargados:', this.arrayUsers); // 👈 debería mostrar el array
+    
     } catch (error) {
       console.error('Error cargando usuarios:', error);
     }
