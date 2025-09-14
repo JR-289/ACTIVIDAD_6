@@ -9,5 +9,5 @@ import { IUser } from '../../interfaces/iuser.interface';
   styleUrl: './user-card.component.css'
 })
 export class UserCardComponent {
-  myUser = input<IUser>()
+  myUser = input<IUser>();
 }

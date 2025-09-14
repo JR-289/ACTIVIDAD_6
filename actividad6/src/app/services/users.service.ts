@@ -8,23 +8,18 @@ import { IUser } from '../interfaces/iuser.interface';
   providedIn: 'root'
 })
 export class UsersService {
+  private httpClient = inject(HttpClient);
+  private baseUrl = 'https://peticiones.online/api/users';
 
-  private httpClient = inject(HttpClient)
-  // url de la api para conectarme
-  private baseUrl: string = 'https://peticiones.online/api/users/'
-
-
-
-  /* opcion 2*/
-  /* promises en angular - peticiones asincronas generales de javascript - convertir observable en un promesas */
-  getAllPromises(id: string): Promise<any> {
-    const _id = (id === "") ? this.baseUrl : id
-    return lastValueFrom(this.httpClient.get<IUser>(_id))
+  async getAllPromises(): Promise<IUser[]> {
+    const obs$ = this.httpClient.get<{ results: IUser[] }>(this.baseUrl);
+    const response = await lastValueFrom(obs$);
+    console.log('Respuesta API:', response); // 👈 debe mostrar { results: [...] }
+    return response.results; // 👈 aquí está el array correcto
   }
 
-  /* metodo para obtener un unico personaje*/
-  getById(_id: string): Promise<any> {
-    return lastValueFrom(this.httpClient.get<any>(`${this.baseUrl}${_id}`))
+  async getById(_id: string): Promise<IUser> {
+    const obs$ = this.httpClient.get<IUser>(`${this.baseUrl}/${_id}`);
+    return await lastValueFrom(obs$);
   }
-  
 }
