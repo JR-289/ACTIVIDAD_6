@@ -53,4 +53,9 @@ export class NewUserComponent {
     const c = this.userForm.get(name);
     return !!c && c.touched && c.invalid;
   }
+
+   goBack() {
+    this.router.navigate(['/home']);
+  }
+
 }

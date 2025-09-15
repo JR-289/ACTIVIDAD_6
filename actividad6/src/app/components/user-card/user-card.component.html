@@ -12,17 +12,17 @@
     <h5 class="card-title text-dark">
       {{ myUser()?.first_name }} {{ myUser()?.last_name }}
     </h5>
-    <p class="card-text text-muted mb-3">
+    <!-- <p class="card-text text-muted mb-3">
       {{ myUser()?.email }} <br />
       <small class="text-secondary">{{ myUser()?.username }}</small>
-    </p>
+    </p> -->
 
     <!-- Botones al fondo -->
     <div class="mt-auto d-flex flex-column gap-2">
       <button class="btn btn-outline-primary btn-sm" [routerLink]="['/users', myUser()?._id]">
         Ver Detalle
       </button>
-      <button class="btn btn-outline-danger btn-sm" [routerLink]="['/updateUser', myUser()?._id]">
+      <button class="btn btn-outline-success btn-sm" [routerLink]="['/updateUser', myUser()?._id]">
         Editar
       </button>
       <button class="btn btn-outline-danger btn-sm" (click)="onDelete()">

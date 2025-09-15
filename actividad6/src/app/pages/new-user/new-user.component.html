@@ -55,7 +55,7 @@
           <button class="btn btn-success" type="submit" [disabled]="userForm.invalid || loading">
             {{ loading ? 'Guardando...' : 'Guardar' }}
           </button>
-          <button class="btn btn-secondary" type="button" [disabled]="loading" routerLink="/home">
+          <button class="btn btn-secondary" type="button" (click)="goBack()" [disabled]="loading" routerLink="/home">
             Cancelar
           </button>
         </div>
