@@ -19,15 +19,24 @@
 
     <!-- Botones al fondo -->
     <div class="mt-auto d-flex flex-column gap-2">
-      <button class="btn btn-outline-primary btn-sm" [routerLink]="['/users', myUser()?._id]">
-        Ver Detalle
-      </button>
-      <button class="btn btn-outline-success btn-sm" [routerLink]="['/updateUser', myUser()?._id]">
-        Editar
-      </button>
-      <button class="btn btn-outline-danger btn-sm" (click)="onDelete()">
-        Eliminar
-      </button>
+     
+      <button class="justify-content-center btn btn-outline-primary btn-sm d-flex align-items-center gap-1"
+        [routerLink]="['/users', myUser()?._id]">
+  <i class="bi bi-search"></i>
+  Ver Detalle
+</button>
+
+<button class="justify-content-center btn btn-outline-success btn-sm d-flex align-items-center gap-1"
+        [routerLink]="['/updateUser', myUser()?._id]">
+  <i class="bi bi-arrow-repeat"></i>
+  Editar
+</button>
+
+<button class="justify-content-center btn btn-outline-danger btn-sm d-flex align-items-center gap-1"
+        (click)="onDelete()">
+  <i class="bi bi-trash"></i>
+  Eliminar
+</button>
     </div>
   </div>
 </div>
