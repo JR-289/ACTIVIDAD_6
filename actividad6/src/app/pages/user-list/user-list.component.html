@@ -1,9 +1,9 @@
 
 
 <section class="promises">
-  <div class="row g-5">
+  <div class="row row-cols-1 row-cols-md-5 g-4">
     @for (user of arrayUsers; track user) {
-      <article class="col-12 col-md-3">
+      <article class="col">
       <app-user-card [myUser]="user"></app-user-card>
       </article>
     }
