@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NavComponent } from './shared/nav/nav.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { FootersComponent } from './pages/footers/footers.component';
+import { FootersComponent } from './shared/footers/footers.component';
 
 @Component({
   selector: 'app-root',
