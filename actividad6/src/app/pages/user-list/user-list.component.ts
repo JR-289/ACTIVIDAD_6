@@ -2,6 +2,7 @@ import { Component, inject,} from '@angular/core';
 import { UsersService } from '../../services/users.service';
 import { IUser } from '../../interfaces/iuser.interface';
 import { UserCardComponent } from '../../components/user-card/user-card.component';
+import { IResponse } from '../../interfaces/iresponse.interface';
 
 
 @Component({
@@ -13,18 +14,26 @@ import { UserCardComponent } from '../../components/user-card/user-card.componen
 export class UserListComponent {
   arrayUsers: IUser[] = [];
   usersService = inject(UsersService);
+  currentPage = 1;
 
   async ngOnInit(): Promise<void> {
-    await this.cargarUsers();
+    await this.cargarUsers(this.currentPage);
   }
 
-  async cargarUsers() {
-    try {
-      this.arrayUsers = await this.usersService.getAllPromises();
-    
-    } catch (error) {
-      console.error('Error cargando usuarios:', error);
-    }
+  async cargarUsers(page: number) {
+    const response: IResponse = await this.usersService.getAllPromises(page);
+    this.arrayUsers = response.results;
+    this.currentPage = response.page;
+  }
+
+  async gotoPrev() {
+    const prevPage = this.currentPage === 1 ? 2 : 1;
+    await this.cargarUsers(prevPage);
+  }
+
+  async gotoNext() {
+    const nextPage = this.currentPage === 2 ? 1 : 2;
+    await this.cargarUsers(nextPage);
   }
 
   

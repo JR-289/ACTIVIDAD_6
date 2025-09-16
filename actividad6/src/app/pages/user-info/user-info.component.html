@@ -35,9 +35,10 @@
             <button class="btn btn-primary" (click)="goEdit()" [disabled]="!myUser?._id">
               Editar
             </button>
-            <button class="btn btn-danger" (click)="goEdit()" [disabled]="!myUser?._id">
-              Eliminar
-            </button>
+          
+            <button class="btn btn-danger" (click)="onDelete()">
+        Eliminar
+      </button>
           </div>
         </div>
       </div>
