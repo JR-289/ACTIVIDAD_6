@@ -1,18 +1,20 @@
 import { Component,Input, inject } from '@angular/core';
 import { IUser } from '../../interfaces/iuser.interface';
 import { UsersService } from '../../services/users.service';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-user-info',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './user-info.component.html',
   styleUrl: './user-info.component.css'
 })
 export class UserInfoComponent {
+
+  
   @Input() idUser: string = ''; // opcional, también soporta /user/:id
-  myUser: IUser | null = null;
-  loading = true;
+  myUser: IUser | null = null; // ?
+  loading = true; // ? 
 
   usersService = inject(UsersService);
   router = inject(Router);

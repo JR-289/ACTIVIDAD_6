@@ -35,6 +35,10 @@ export class UserListComponent {
     const nextPage = this.currentPage === 2 ? 1 : 2;
     await this.cargarUsers(nextPage);
   }
-
+  
+getAlertDelete(event: string){
+  this.cargarUsers(this.currentPage)
+  alert(event)
+}
   
 }
