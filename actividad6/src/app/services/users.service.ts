@@ -2,7 +2,7 @@ import { Injectable, inject } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http';
 import { lastValueFrom } from 'rxjs';
-import { IUser } from '../interfaces/iuser.interface';
+import { IError, IUser } from '../interfaces/iuser.interface';
 import { IResponse } from '../interfaces/iresponse.interface';
 
 @Injectable({
@@ -27,12 +27,12 @@ async createUser(body: {
     last_name: string;
     email: string;
     image: string;
-  }): Promise<any> {
-    const obs$ = this.httpClient.post<any>(this.baseUrl, body);
+  }): Promise<IUser> {
+    const obs$ = this.httpClient.post<IUser>(this.baseUrl, body);
     return await lastValueFrom(obs$);
   }
-async deleteUser(_id: string): Promise<any> {
-  const obs$ = this.httpClient.delete<any>(`${this.baseUrl}/${_id}`);
+async deleteUser(_id: string): Promise<IUser | IError> {
+  const obs$ = this.httpClient.delete<IUser>(`${this.baseUrl}/${_id}`);
   return await lastValueFrom(obs$);
 }
 }

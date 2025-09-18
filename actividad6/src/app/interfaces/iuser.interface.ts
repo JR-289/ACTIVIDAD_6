@@ -8,3 +8,7 @@ export interface IUser {
     image: string;
     password: string;
 }
+
+export interface IError {
+    error: string
+}

@@ -7,3 +7,4 @@ export interface IResponse {
   total_pages: number;
   results: IUser[];
 }
+
