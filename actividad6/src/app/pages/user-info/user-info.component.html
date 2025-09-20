@@ -1,53 +1,50 @@
-
-
 <div class="container">
-  <!-- Cabecera con imagen y datos -->
-  <div class="card shadow-sm ">
+  <div class="card shadow-sm">
     <div class="d-flex justify-content-center align-items-center">
       <div class="col-12 col-md-4">
         <img
           class="rounded-circle img-fluid w-100 h-100 p-4 align-items-center"
           [src]="myUser?.image"
           [alt]="(myUser?.first_name || '') + ' ' + (myUser?.last_name || '')"
-          style="object-fit: cover;"
+          style="object-fit: cover"
         />
       </div>
 
       <div class="text-center col-md-8">
         <div class="card-body">
           <h1 class="card-title mb-1">
-            {{ myUser?.first_name}}
+            {{ myUser?.first_name }}
             {{ myUser?.last_name }}
           </h1>
           <p class="text-muted mb-2">
-            _id: <code>{{ myUser?._id}}</code>
+            _id: <code>{{ myUser?._id }}</code>
           </p>
 
           <div class="mb-2">
-            <strong>Usuario:</strong> {{ myUser?.username  }}
+            <strong>Usuario:</strong> {{ myUser?.username }}
           </div>
-          <div class="mb-2">
-            <strong>Email:</strong> {{ myUser?.email }}
-          </div>
+          <div class="mb-2"><strong>Email:</strong> {{ myUser?.email }}</div>
 
           <div class="d-flex gap-2 mt-3 justify-content-center">
-            
-            <button class="btn btn-secondary" (click)="goBack()"> <i class="bi bi-arrow-left-circle"></i> Volver</button>
+            <button class="btn btn-secondary" (click)="goBack()">
+              <i class="bi bi-arrow-left-circle"></i> Volver
+            </button>
 
-            <button class="btn btn-primary" [routerLink]="['/dashboard','updateUser', myUser?._id]">
-                <i class="bi bi-arrow-repeat"></i>
+            <button
+              class="btn btn-primary"
+              [routerLink]="['/dashboard', 'updateUser', myUser?._id]"
+            >
+              <i class="bi bi-arrow-repeat"></i>
               Editar
             </button>
-          
+
             <button class="btn btn-danger" (click)="onDelete()">
-                <i class="bi bi-trash"></i>
-        Eliminar
-      </button>
-    
+              <i class="bi bi-trash"></i>
+              Eliminar
+            </button>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-

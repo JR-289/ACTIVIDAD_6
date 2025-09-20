@@ -13,9 +13,9 @@ import { toast } from 'ngx-sonner';
 export class UserInfoComponent {
 
   
-  @Input() idUser: string = ''; // opcional, también soporta /user/:id
-  myUser: IUser | null = null; // ?
-  loading = true; // ? 
+  @Input() idUser: string = ''; 
+  myUser: IUser | any;
+  // loading = true;
 
   usersService = inject(UsersService);
   router = inject(Router);
@@ -37,9 +37,10 @@ export class UserInfoComponent {
       this.myUser = response;
     } catch {
       this.router.navigate(['/error']);
-    } finally {
-      this.loading = false;
     }
+    // } finally {
+    //   this.loading = false;
+    // }
   }
 
   goBack() {
@@ -60,7 +61,7 @@ export class UserInfoComponent {
     try {
       await this.usersService.deleteUser(this.myUser._id);
        toast.error("Usuario con ID:" + this.myUser._id + " eliminado correctamente.");
-      this.router.navigate(['/dashboard']); // redirigir al listado después de borrar
+      this.router.navigate(['/dashboard']); 
     } catch (err) {
       console.error('Error al eliminar usuario', err);
       alert('No se pudo eliminar el usuario.');

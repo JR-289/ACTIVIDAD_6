@@ -14,10 +14,8 @@ export const routes: Routes = [
     {path: "userList", component: UserListComponent},
     {path: "updateUser/:_id", component: NewUserComponent},
     {path: "newUser", component: NewUserComponent},
-    
     {path: "users/:_id", component: UserInfoComponent},]
  },
-
 
 
 {path: "**", component: Error404Component}

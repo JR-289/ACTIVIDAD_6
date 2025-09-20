@@ -3,50 +3,74 @@
     <div class="card-body">
       <h4 class="mb-3">Crear nuevo usuario</h4>
 
-      <!-- Mensaje éxito simple (visible cuando ya existe createdId) -->
-      <!-- <div class="alert alert-success mb-3" [hidden]="!createdId">
-        Usuario creado correctamente. ID: <strong>{{ createdId }}</strong>
-      </div> -->
-
       <form [formGroup]="userForm" (ngSubmit)="getDataForm()" novalidate>
-        <!-- Nombre -->
         <div class="mb-3">
           <label class="form-label">Nombre de Usuario</label>
-          <input class="form-control" formControlName="first_name" placeholder="Nombre" />
-          <small class="text-danger" >
-            <span [hidden]="!userForm.get('first_name')?.errors?.['required']"> El nombre es obligatorio.</span>
-            
+          <input
+            class="form-control"
+            formControlName="first_name"
+            placeholder="Nombre"
+          />
+          <small class="text-danger">
+            <span [hidden]="!userForm.get('first_name')?.errors?.['required']">
+              El nombre es obligatorio.</span
+            >
           </small>
         </div>
 
-        <!-- Apellido -->
         <div class="mb-3">
           <label class="form-label">Apellido</label>
-          <input class="form-control" formControlName="last_name" placeholder="Apellido" />
-          <small class="text-danger" >
-          <span [hidden]="!userForm.get('last_name')?.errors?.['required']"> El apellido es obligatorio.</span>
-           
+          <input
+            class="form-control"
+            formControlName="last_name"
+            placeholder="Apellido"
+          />
+          <small class="text-danger">
+            <span [hidden]="!userForm.get('last_name')?.errors?.['required']">
+              El apellido es obligatorio.</span
+            >
           </small>
         </div>
 
-        <!-- Email -->
         <div class="mb-3">
           <label class="form-label">Email</label>
-          <input type="email" class="form-control" formControlName="email" placeholder="email@dominio.com" />
-          <small class="text-danger"
-                 [hidden]="!(userForm.get('email')?.touched && userForm.get('email')?.errors)">
-            <span [hidden]="!userForm.get('email')?.errors?.['required']">El email es obligatorio.</span>
-            <span [hidden]="!userForm.get('email')?.errors?.['email']">Formato de email inválido.</span>
+          <input
+            type="email"
+            class="form-control"
+            formControlName="email"
+            placeholder="email@dominio.com"
+          />
+          <small
+            class="text-danger"
+            [hidden]="
+              !(userForm.get('email')?.touched && userForm.get('email')?.errors)
+            "
+          >
+            <span [hidden]="!userForm.get('email')?.errors?.['required']"
+              >El email es obligatorio.</span
+            >
+            <span [hidden]="!userForm.get('email')?.errors?.['email']"
+              >Formato de email inválido.</span
+            >
           </small>
         </div>
 
-        <!-- Imagen (URL) -->
         <div class="mb-3">
           <label class="form-label">Imagen (URL)</label>
-          <input class="form-control" formControlName="image" placeholder="https://..." />
-          <small class="text-danger"
-                 [hidden]="!(userForm.get('image')?.touched && userForm.get('image')?.errors)">
-            <span [hidden]="!userForm.get('image')?.errors?.['required']">La URL es obligatoria.</span>
+          <input
+            class="form-control"
+            formControlName="image"
+            placeholder="https://..."
+          />
+          <small
+            class="text-danger"
+            [hidden]="
+              !(userForm.get('image')?.touched && userForm.get('image')?.errors)
+            "
+          >
+            <span [hidden]="!userForm.get('image')?.errors?.['required']"
+              >La URL es obligatoria.</span
+            >
             <span [hidden]="!userForm.get('image')?.errors?.['pattern']">
               Debe comenzar por http:// o https://
             </span>
@@ -55,8 +79,13 @@
 
         <div class="d-flex gap-2">
           <button class="btn btn-success" type="submit">Guardar</button>
-          
-          <button class="btn btn-secondary" type="button" (click)="goBack()"  routerLink="/home">
+
+          <button
+            class="btn btn-secondary"
+            type="button"
+            (click)="goBack()"
+            routerLink="/home"
+          >
             Cancelar
           </button>
         </div>
