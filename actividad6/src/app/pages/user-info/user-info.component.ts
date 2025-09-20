@@ -43,7 +43,7 @@ export class UserInfoComponent {
   }
 
   goBack() {
-    this.router.navigate(['/userList']);
+    this.router.navigate(['/dashboard']);
   }
 
   goEdit() {
