@@ -2,7 +2,7 @@
   <!-- Imagen arriba -->
   <img 
     [src]="myUser()?.image || 'assets/no-image.png'" 
-    class="card-img-top img-fluid" 
+    class="rounded-circle card-img-top img-fluid p-3" 
     [alt]="myUser()?.first_name" 
     onerror="this.src='assets/no-image.png'"
   />

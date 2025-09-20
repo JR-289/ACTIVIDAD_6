@@ -28,11 +28,11 @@ export class UserCardComponent {
 
     try {
       await this.usersService.deleteUser(user._id);
-      toast.error('Usuario eliminado correctamente.');
+      toast.error("Usuario con ID:" + user._id + " eliminado correctamente.");
       this.userDeleted.emit(user._id);
     } catch (err) {
-      console.error('Error al eliminar usuario', err);
-      toast.error('Event has not been created');
+      
+      toast.error('Error al eliminar usuari');
     }
   }
 }

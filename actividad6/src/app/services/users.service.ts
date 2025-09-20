@@ -22,15 +22,20 @@ async getAllPromises(page: number = 1): Promise<IResponse> {
     return await lastValueFrom(obs$);
   }
 
-async createUser(body: {
-    first_name: string;
-    last_name: string;
-    email: string;
-    image: string;
-  }): Promise<IUser> {
-    const obs$ = this.httpClient.post<IUser>(this.baseUrl, body);
+async updateUser(user: IUser): Promise<any> {
+  let { _id, ...restUser} = user
+  return lastValueFrom(this.httpClient.put(`${this.baseUrl}/${_id}`, restUser))
+}
+
+
+
+async createUser(user: IUser): Promise<IUser> {
+    const obs$ = this.httpClient.post<IUser>(this.baseUrl, user);
     return await lastValueFrom(obs$);
+  
   }
+
+
 async deleteUser(_id: string): Promise<IUser | IError> {
   const obs$ = this.httpClient.delete<IUser>(`${this.baseUrl}/${_id}`);
   return await lastValueFrom(obs$);

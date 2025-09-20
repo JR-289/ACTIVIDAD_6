@@ -59,7 +59,7 @@ export class UserInfoComponent {
 
     try {
       await this.usersService.deleteUser(this.myUser._id);
-      toast.error('Usuario eliminado correctamente.');
+       toast.error("Usuario con ID:" + this.myUser._id + " eliminado correctamente.");
       this.router.navigate(['/dashboard']); // redirigir al listado después de borrar
     } catch (err) {
       console.error('Error al eliminar usuario', err);
