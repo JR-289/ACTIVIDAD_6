@@ -2,6 +2,8 @@ import { Component, input, Output , inject, EventEmitter} from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { IUser } from '../../interfaces/iuser.interface';
 import { UsersService } from '../../services/users.service';
+import { NgxSonnerToaster, toast } from 'ngx-sonner';
+
 
 @Component({
   selector: 'app-user-card',
@@ -26,11 +28,11 @@ export class UserCardComponent {
 
     try {
       await this.usersService.deleteUser(user._id);
-      alert('Usuario eliminado correctamente.');
+      toast.error('Usuario eliminado correctamente.');
       this.userDeleted.emit(user._id);
     } catch (err) {
       console.error('Error al eliminar usuario', err);
-      alert('No se pudo eliminar el usuario.');
+      toast.error('Event has not been created');
     }
   }
 }

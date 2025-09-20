@@ -2,6 +2,7 @@ import { Component,Input, inject } from '@angular/core';
 import { IUser } from '../../interfaces/iuser.interface';
 import { UsersService } from '../../services/users.service';
 import { Router, ActivatedRoute, RouterLink } from '@angular/router';
+import { toast } from 'ngx-sonner';
 
 @Component({
   selector: 'app-user-info',
@@ -58,8 +59,8 @@ export class UserInfoComponent {
 
     try {
       await this.usersService.deleteUser(this.myUser._id);
-      alert('Usuario eliminado correctamente.');
-      this.router.navigate(['/home']); // redirigir al listado después de borrar
+      toast.error('Usuario eliminado correctamente.');
+      this.router.navigate(['/dashboard']); // redirigir al listado después de borrar
     } catch (err) {
       console.error('Error al eliminar usuario', err);
       alert('No se pudo eliminar el usuario.');
