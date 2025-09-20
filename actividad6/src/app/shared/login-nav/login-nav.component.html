@@ -1,0 +1,26 @@
+<nav class="navbar bg-dark text-white border-bottom border-3 border-secondary mb-4">
+  <div class="container-fluid d-flex flex-column align-items-center py-3">
+
+    <!-- Fila superior: Logo + Nombre -->
+    <div class="d-flex flex-row align-items-center gap-3 mb-2">
+      <img src="https://img.icons8.com/fluency/48/000000/customer-support.png" 
+           alt="Logo" width="48" height="48" class="rounded-circle border border-2 border-light">
+      <span class="fw-bold fs-4">CRM USER CONTROL</span>
+    </div>
+
+    <!-- Fila inferior: Nav -->
+    <ul class="navbar-nav d-flex flex-row gap-4">
+      <li class="nav-item">
+        <a class="nav-link text-white fw-semibold" routerLinkActive="active" [routerLink]="['/home']">
+          Login
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white fw-semibold" routerLinkActive="active" [routerLink]="['/home']">
+          Registrarse
+        </a>
+      </li>
+    </ul>
+    
+  </div>
+</nav>

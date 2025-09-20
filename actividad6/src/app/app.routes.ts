@@ -13,11 +13,12 @@ export const routes: Routes = [
     {path: "", pathMatch: "full", redirectTo: 'userList' },
     {path: "userList", component: UserListComponent},
     {path: "updateUser/:_id", component: NewUserComponent},
+    {path: "newUser", component: NewUserComponent},
     
     {path: "users/:_id", component: UserInfoComponent},]
  },
 
-{path: "newUser", component: NewUserComponent},
+
 
 {path: "**", component: Error404Component}
 

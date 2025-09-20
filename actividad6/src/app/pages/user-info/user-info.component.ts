@@ -66,7 +66,5 @@ export class UserInfoComponent {
       alert('No se pudo eliminar el usuario.');
     }
   }
-
-  
   
 }
