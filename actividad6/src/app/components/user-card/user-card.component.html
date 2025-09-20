@@ -15,19 +15,20 @@
     <!-- <p class="card-text text-muted mb-3">
       {{ myUser()?.email }} <br />
       <small class="text-secondary">{{ myUser()?.username }}</small>
-    </p> -->
+    </p> --
+     < // [routerLink]="['/dashboard', 'empleado', myEmployee._id]" // -->
 
     <!-- Botones al fondo -->
     <div class="mt-auto d-flex flex-column gap-2">
      
       <button class="justify-content-center btn btn-outline-primary btn-sm d-flex align-items-center gap-1"
-        [routerLink]="['/users', myUser()?._id]">
+        [routerLink]="['/dashboard','users', myUser()?._id]">
   <i class="bi bi-search"></i>
   Ver Detalle
 </button>
 
 <button class="justify-content-center btn btn-outline-success btn-sm d-flex align-items-center gap-1"
-        [routerLink]="['/updateUser', myUser()?._id]">
+        [routerLink]="['/dashboard','updateUser', myUser()?._id]">
   <i class="bi bi-arrow-repeat"></i>
   Editar
 </button>

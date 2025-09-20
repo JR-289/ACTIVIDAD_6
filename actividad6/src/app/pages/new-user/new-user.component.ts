@@ -25,7 +25,7 @@ export class NewUserComponent {
     image: ['', [Validators.required, Validators.pattern(/^https?:\/\/.+/i)]] // URL imagen
   });
 
-  async onSubmit() {
+  async getDataForm () {
     if (this.userForm.invalid || this.loading) return;
 
     this.loading = true;
