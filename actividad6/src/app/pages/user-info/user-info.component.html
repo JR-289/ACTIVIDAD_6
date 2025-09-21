@@ -1,19 +1,19 @@
 <section class="container">
   <article class="card shadow-sm">
-    <div class="d-flex justify-content-center align-items-center">
+    <div class="row g-0 align-items-center">
       
-      
-      <figure class="col-12 col-md-4 text-center">
+      <!-- Imagen -->
+      <figure class="col-12 col-md-4 text-center mb-3 mb-md-0">
         <img
-          class="rounded-circle img-fluid w-100 h-100 p-4"
+          class="rounded-circle img-fluid p-3 mx-auto d-block"
           [src]="myUser?.image"
           [alt]="(myUser?.first_name || '') + ' ' + (myUser?.last_name || '')"
-          style="object-fit: cover"
+          style="max-width: 250px; height: auto; object-fit: cover;"
         />
       </figure>
 
-      
-      <section class="text-center col-md-8 card-body">
+      <!-- Contenido -->
+      <section class="col-12 col-md-8 card-body text-center text-md-start">
         <h1 class="card-title mb-1">
           {{ myUser?.first_name }} {{ myUser?.last_name }}
         </h1>
@@ -28,8 +28,8 @@
           <strong>Email:</strong> {{ myUser?.email }}
         </p>
 
-        
-        <footer class="d-flex gap-2 mt-3 justify-content-center">
+        <!-- Botones -->
+        <footer class="d-flex flex-column flex-md-row gap-2 mt-3 justify-content-center justify-content-md-start">
           <button class="btn btn-secondary" (click)="goBack()">
             <i class="bi bi-arrow-left-circle"></i> Volver
           </button>
