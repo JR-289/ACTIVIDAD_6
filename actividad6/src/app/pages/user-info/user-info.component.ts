@@ -15,7 +15,7 @@ export class UserInfoComponent {
   
   @Input() idUser: string = ''; 
   myUser: IUser | any;
-  // loading = true;
+ 
 
   usersService = inject(UsersService);
   router = inject(Router);
@@ -38,9 +38,7 @@ export class UserInfoComponent {
     } catch {
       this.router.navigate(['/error']);
     }
-    // } finally {
-    //   this.loading = false;
-    // }
+   
   }
 
   goBack() {
@@ -52,6 +50,7 @@ export class UserInfoComponent {
       this.router.navigate(['/updateuser', this.myUser._id]);
     }
   }
+  
   async onDelete() {
     if (!this.myUser?._id) return;
 

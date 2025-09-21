@@ -1,7 +1,7 @@
-<div class="container">
-  <div class="card shadow-sm">
+<main class="container">
+  <article class="card shadow-sm">
     <div class="card-body">
-      <h4 class="mb-3">Crear nuevo usuario</h4>
+      <h4 class="mb-3">{{title}} usuario</h4>
 
       <form [formGroup]="userForm" (ngSubmit)="getDataForm()" novalidate>
         <div class="mb-3">
@@ -11,7 +11,7 @@
             formControlName="first_name"
             placeholder="Nombre"
           />
-          <small class="text-danger">
+          <small class="text-danger" [hidden]="!(userForm.get('first_name')?.touched && userForm.get('first_name')?.errors) ">
             <span [hidden]="!userForm.get('first_name')?.errors?.['required']">
               El nombre es obligatorio.</span
             >
@@ -25,10 +25,8 @@
             formControlName="last_name"
             placeholder="Apellido"
           />
-          <small class="text-danger">
-            <span [hidden]="!userForm.get('last_name')?.errors?.['required']">
-              El apellido es obligatorio.</span
-            >
+          <small class="text-danger" [hidden]="!(userForm.get('last_name')?.touched && userForm.get('last_name')?.errors) ">
+          <span [hidden]="!userForm.get('last_name')?.errors?.['required']" >El apellido es obligatorio.</span>
           </small>
         </div>
 
@@ -40,12 +38,7 @@
             formControlName="email"
             placeholder="email@dominio.com"
           />
-          <small
-            class="text-danger"
-            [hidden]="
-              !(userForm.get('email')?.touched && userForm.get('email')?.errors)
-            "
-          >
+          <small class="text-danger" [hidden]="!(userForm.get('email')?.touched && userForm.get('email')?.errors) ">
             <span [hidden]="!userForm.get('email')?.errors?.['required']"
               >El email es obligatorio.</span
             >
@@ -91,5 +84,5 @@
         </div>
       </form>
     </div>
-  </div>
-</div>
+  </article>
+</main>

@@ -36,9 +36,9 @@ export class UserListComponent {
     await this.cargarUsers(nextPage);
   }
   
-getAlertDelete(event: string){
+  getAlertDelete(event: string){
   this.cargarUsers(this.currentPage)
   alert(event)
-}
+  }
   
 }

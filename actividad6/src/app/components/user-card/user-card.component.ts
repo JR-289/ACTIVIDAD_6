@@ -2,7 +2,7 @@ import { Component, input, Output , inject, EventEmitter} from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { IUser } from '../../interfaces/iuser.interface';
 import { UsersService } from '../../services/users.service';
-import { NgxSonnerToaster, toast } from 'ngx-sonner';
+import { toast } from 'ngx-sonner';
 
 
 @Component({

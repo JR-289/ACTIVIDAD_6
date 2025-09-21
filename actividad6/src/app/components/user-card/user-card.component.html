@@ -1,40 +1,48 @@
-<div class="card h-100 shadow-sm">
-  <img
-    [src]="myUser()?.image || 'assets/no-image.png'"
-    class="rounded-circle card-img-top img-fluid p-3"
-    [alt]="myUser()?.first_name"
-    onerror="this.src='assets/no-image.png'"
-  />
+<article class="card h-100 shadow-sm text-center">
+  
+  <figure class="m-0">
+    <img
+      [src]="myUser()?.image || 'assets/no-image.png'"
+      class="rounded-circle card-img-top img-fluid p-3"
+      [alt]="(myUser()?.first_name || '') + ' ' + (myUser()?.last_name || '')"
+      onerror="this.src='assets/no-image.png'"
+    />
+    <figcaption class="visually-hidden">
+      Foto de perfil de {{ myUser()?.first_name }} {{ myUser()?.last_name }}
+    </figcaption>
+  </figure>
 
-  <div class="card-body d-flex flex-column text-center">
-    <h5 class="card-title text-dark">
+ 
+  <div class="card-body d-flex flex-column">
+    <h2 class="card-title text-dark h5 mb-2">
       {{ myUser()?.first_name }} {{ myUser()?.last_name }}
-    </h5>
+    </h2>
 
+    
     <div class="mt-auto d-flex flex-column gap-2">
       <button
-        class="justify-content-center btn btn-outline-primary btn-sm d-flex align-items-center gap-1"
+        class="btn btn-outline-primary btn-sm d-flex align-items-center justify-content-center gap-1"
         [routerLink]="['/dashboard', 'users', myUser()?._id]"
       >
-        <i class="bi bi-search"></i>
-        Ver Detalle
+        <i class="bi bi-search" aria-hidden="true"></i>
+        <span>Ver Detalle</span>
       </button>
 
       <button
-        class="justify-content-center btn btn-outline-success btn-sm d-flex align-items-center gap-1"
+        class="btn btn-outline-success btn-sm d-flex align-items-center justify-content-center gap-1"
         [routerLink]="['/dashboard', 'updateUser', myUser()?._id]"
       >
-        <i class="bi bi-arrow-repeat"></i>
-        Editar
+        <i class="bi bi-arrow-repeat" aria-hidden="true"></i>
+        <span>Editar</span>
       </button>
 
       <button
-        class="justify-content-center btn btn-outline-danger btn-sm d-flex align-items-center gap-1"
+        class="btn btn-outline-danger btn-sm d-flex align-items-center justify-content-center gap-1"
         (click)="onDelete()"
       >
-        <i class="bi bi-trash"></i>
-        Eliminar
+        <i class="bi bi-trash" aria-hidden="true"></i>
+        <span>Eliminar</span>
       </button>
     </div>
   </div>
-</div>
+</article>

@@ -19,9 +19,11 @@ export class NewUserComponent {
   userService = inject(UsersService);
   router = inject(Router);
   route = inject(ActivatedRoute);
-
+ 
   user: IUser | null = null;
   userId: string | null = null;
+
+  title: string = 'Registrar'
 
   constructor(){
     this.userForm = new FormGroup({
@@ -35,19 +37,30 @@ export class NewUserComponent {
   async ngOnInit() {
 
     this.route.params.subscribe(async (params) => {
-      this.userId = params['_id'] ?? null;
+    this.userId = params['_id'] ?? null;
 
       if (this.userId) {
         try {
           this.user = await this.userService.getById(this.userId);
-          
+          this.title  = 'Editar'
           this.userForm.patchValue(this.user);
+          // this.userForm = new FormGroup({
+          // first_name: new FormControl(this.user?.first_name || "", [Validators.required]),
+          // last_name: new FormControl(this.user?.last_name || "", [Validators.required]),
+          // email: new FormControl(this.user?.email || "", [Validators.required, Validators.email]),
+          // image: new FormControl(this.user?.image || "", [Validators.required, Validators.pattern(/^https?:\/\/.+/i)])
+          // })
+          
+          
+
         } catch (error) {
           toast.error("Error cargando usuario");
         }
-      }
-    });
-  }
+      
+    }
+    ;
+  })
+}
 
   goBack() {
     this.router.navigate(['/dashboard']);

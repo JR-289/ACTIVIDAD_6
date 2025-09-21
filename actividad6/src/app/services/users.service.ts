@@ -1,5 +1,4 @@
 import { Injectable, inject } from '@angular/core';
-
 import { HttpClient } from '@angular/common/http';
 import { lastValueFrom } from 'rxjs';
 import { IError, IUser } from '../interfaces/iuser.interface';
@@ -17,7 +16,7 @@ async getAllPromises(page: number = 1): Promise<IResponse> {
   return await lastValueFrom(obs$);
 }
 
-  async getById(_id: string): Promise<IUser> {
+async getById(_id: string): Promise<IUser> {
     const obs$ = this.httpClient.get<IUser>(`${this.baseUrl}/${_id}`);
     return await lastValueFrom(obs$);
   }
